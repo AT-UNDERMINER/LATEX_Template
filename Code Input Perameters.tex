@@ -1,0 +1,23 @@
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+
+% Optional: Customize the appearance of the code (Set for a decent MATLAB code style)
+\lstset{
+    language=Matlab,           % Set language to MATLAB
+    basicstyle=\ttfamily\small, % Basic style for the code font
+    keywordstyle=\color{blue},  % Color for keywords
+    commentstyle=\color{green!70!black}, % Color for comments
+    stringstyle=\color{violet!50!white},    % Color for strings
+    numbers=left,               % Line numbers on the left
+    numberstyle=\tiny\color{gray}, % Style for line numbers
+    stepnumber=1,               % Line number step
+    frame=single,               % Frame around the code
+    breaklines=true,            % Automatically break long lines
+    captionpos=b,               % Caption position at the bottom
+    showspaces=false,           % Do not show spaces
+    showstringspaces=false,     % Do not show string spaces
+    literate={Ω}{{$\Omega$}}1  % Replace Ω with LaTeX \textOmega
+             {Δ}{{$\Delta$}}1      % Replace Δ with LaTeX \Delta
+             {°}{{\degree}}1     % Replace ° with LaTeX \degree
+}

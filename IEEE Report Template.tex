@@ -1,0 +1,44 @@
+\documentclass[11pt,twocolumn]{report}
+\input{Base Packages.tex}
+\input{Format Parameters.tex}
+\input{Code Input Perameters.tex}
+
+% Define Values
+    \def\name{First and Last Name}
+    \def\subjectcode{Subject Code}
+    \def\studentnumber{Student Number}
+    \def\doctitle{Document Title}
+    \def\institution{Name of institution}
+
+\title{\subjectcode{} \doctitle{}\\\large{\institution{}}}
+\author{\name{} (\studentnumber{}) \\
+\texttt{Email Address}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+% Provide a brief summary of the report here.
+
+\lipsum[1]
+
+\end{abstract}
+
+%\tableofcontents
+%\newpage
+
+\input{Sections/Example Section} 
+
+% Include references here using the cite package.
+\onecolumn
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\restoregeometry
+
+\input{Sections/Appendices.tex}
+
+\end{document}
