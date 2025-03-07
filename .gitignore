@@ -1,0 +1,42 @@
+# LaTeX auxiliary and intermediate files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.nav
+*.snm
+*.vrb
+*.xdv
+
+# PDF and other output files
+*.pdf
+*.dvi
+*.ps
+
+# Backup and temporary files
+*.bak
+*.tmp
+*.swp
+*.swo
+*.sav
+
+# Figures and generated files
+*.eps-converted-to.pdf
+
+# Editor and IDE files
+*.vscode/
+*.idea/
+*.DS_Store
+Thumbs.db
+
+# Overleaf specific
+*.synctex.gz(busy)
