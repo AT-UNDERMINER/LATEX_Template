@@ -1,6 +1,11 @@
-% Headers and Footers
-\usepackage{lastpage}
-\usepackage{fancyhdr}
+\usepackage[a4paper,
+            left=14.32mm, 
+            right=14.32mm, 
+            top=19mm, 
+            bottom=30mm,
+            headsep=6mm, 
+            columnsep=6mm]{geometry}
+
 \makeatletter
 \renewcommand{\@seccntformat}[1]{}
 \makeatother
@@ -13,12 +18,3 @@
 \fancyfootoffset[R]{0pt}
 \fancyfoot[R]{Page \thepage\ of \pageref{LastPage}} 
 \renewcommand{\headrulewidth}{0pt}
-
-\usepackage[a4paper,
-            left=10mm, 
-            right=10mm, 
-            top=16mm, 
-            bottom=20mm,
-            headsep=6mm, 
-            columnsep=6mm]{geometry}
-

@@ -1,7 +1,3 @@
-\usepackage{listings}
-\usepackage{xcolor}
-\usepackage[utf8]{inputenc}
-
 % Optional: Customize the appearance of the code (Set for a decent MATLAB code style)
 \lstset{
     language=Matlab,           % Set language to MATLAB
@@ -20,4 +16,93 @@
     literate={Ω}{{$\Omega$}}1  % Replace Ω with LaTeX \textOmega
              {Δ}{{$\Delta$}}1      % Replace Δ with LaTeX \Delta
              {°}{{\degree}}1     % Replace ° with LaTeX \degree
+}
+
+% Define G-code as a custom language
+\lstdefinelanguage{GCode}{
+  morekeywords={G0,G1,G2,G3,G4,G21,G28,G90,G91,M0,M1,M2,M3,M4,M5,M6,M30,M82,M83,F,S,T,X,Y,Z,E}, 
+  sensitive=false,
+  morecomment=[l];,
+  morestring=[b]"
+}
+
+% Define the colors for clarity
+\definecolor{codesysblue}{rgb}{0.0, 0.0, 1}
+\definecolor{codesysgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{codesysmagenta}{rgb}{0.8, 0.0, 0.8}
+
+\lstdefinelanguage{CoDeSysV23}{
+    keywords={VAR_GLOBAL,END_VAR,VAR,END_VAR,AT,BOOL,INT,REAL,STRING,TIMER,TON,TOF,CTU,IF,THEN,ELSE,ELSIF,END_IF,FOR,TO,DO,END_FOR,WHILE,END_WHILE,REPEAT,UNTIL,END_REPEAT,CASE,OF,END_CASE,EXIT,RETURN,NOT,AND,OR,XOR,:=,FUNCTION_BLOCK,VAR_INPUT,VAR_OUTPUT},
+    % TRUE/FALSE are now listed as morekeywords, and their style is customized.
+    morekeywords=[2]{TRUE,FALSE}, 
+    sensitive=false,
+    morecomment=[l]{(*},
+    morecomment=[l]{//},
+    commentstyle=\color{codesysgreen},
+    keywordstyle=\color{codesysblue},
+    % Define style for second set of keywords (TRUE/FALSE)
+    keywordstyle={[2]\color{codesysmagenta}}, 
+    stringstyle=\color{red},
+    identifierstyle=\color{black},
+    % Now we use the style defined above, and focus literate only on addresses.
+    literate= 
+    % NEW: Highlight T# constant prefix in pink ---
+             {T\#}{{{\color{codesysmagenta} T\#}}}2 % T# has 2 characters
+    % --- Pink Elements (Addressess + Space) ---
+             {\%IX2.0\ }{{{\color{codesysmagenta} \%IX2.0}}}6
+             {\%IX2.1\ }{{{\color{codesysmagenta} \%IX2.1}}}6
+             {\%IX2.2\ }{{{\color{codesysmagenta} \%IX2.2}}}6
+             {\%IX2.3\ }{{{\color{codesysmagenta} \%IX2.3}}}6
+             {\%IX2.4\ }{{{\color{codesysmagenta} \%IX2.4}}}6
+             {\%IX2.5\ }{{{\color{codesysmagenta} \%IX2.5}}}6
+             {\%IX2.6\ }{{{\color{codesysmagenta} \%IX2.6}}}6
+             {\%IX2.7\ }{{{\color{codesysmagenta} \%IX2.7}}}6
+             {\%IX4.0\ }{{{\color{codesysmagenta} \%IX4.0}}}6
+             {\%IX4.1\ }{{{\color{codesysmagenta} \%IX4.1}}}6
+             {\%IX4.2\ }{{{\color{codesysmagenta} \%IX4.2}}}6
+             {\%IX4.3\ }{{{\color{codesysmagenta} \%IX4.3}}}6
+             {\%IX4.4\ }{{{\color{codesysmagenta} \%IX4.4}}}6
+             {\%IX4.5\ }{{{\color{codesysmagenta} \%IX4.5}}}6
+             {\%IX4.6\ }{{{\color{codesysmagenta} \%IX4.6}}}6
+             {\%IX4.7\ }{{{\color{codesysmagenta} \%IX4.7}}}6
+             {\%QX0.0\ }{{{\color{codesysmagenta} \%QX0.0}}}6
+             {\%QX0.1\ }{{{\color{codesysmagenta} \%QX0.1}}}6
+             {\%QX0.2\ }{{{\color{codesysmagenta} \%QX0.2}}}6
+             {\%QX0.3\ }{{{\color{codesysmagenta} \%QX0.3}}}6
+             {\%QX0.4\ }{{{\color{codesysmagenta} \%QX0.4}}}6
+             {\%QX0.5\ }{{{\color{codesysmagenta} \%QX0.5}}}6
+             {\%QX0.6\ }{{{\color{codesysmagenta} \%QX0.6}}}6
+             {\%QX2.0\ }{{{\color{codesysmagenta} \%QX2.0}}}6
+             {\%QX2.1\ }{{{\color{codesysmagenta} \%QX2.1}}}6
+             {\%QX2.2\ }{{{\color{codesysmagenta} \%QX2.2}}}6
+             {\%QX2.3\ }{{{\color{codesysmagenta} \%QX2.3}}}6
+             {\%QX2.4\ }{{{\color{codesysmagenta} \%QX2.4}}}6
+             {\%QX2.5\ }{{{\color{codesysmagenta} \%QX2.5}}}6
+             {\%QX2.6\ }{{{\color{codesysmagenta} \%QX2.6}}}6
+             {\%QX2.7\ }{{{\color{codesysmagenta} \%QX2.7}}}6
+             {T\#250ms}{{{\color{codesysmagenta} T\#250ms}}}7
+             {T\#300ms}{{{\color{codesysmagenta} T\#300ms}}}7
+             {T\#440ms}{{{\color{codesysmagenta} T\#440ms}}}7
+             {T\#200ms}{{{\color{codesysmagenta} T\#200ms}}}7
+             {T\#10ms}{{{\color{codesysmagenta} T\#10ms}}}7
+             {T\#100ms}{{{\color{codesysmagenta} T\#100ms}}}7,
+}
+\makeatother % End of internal LaTeX command usage
+
+% Define the style based on the new language
+\lstdefinestyle{codesys}{
+    language=CoDeSysV23, % Use the newly defined language
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=8pt,
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    frame=single,
+    frameshape={l}{}{}{},
+    framerule=0.4pt,
+    tabsize=4,
+    % No need to redefine styles here, as they are set in the language definition
 }

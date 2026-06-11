@@ -1,5 +1,5 @@
 % Essential Packages  
-\usepackage{graphicx}   % For including images (resizing, rotating, and placing images in the document)  
+\RequirePackage{graphicx}   % For including images (resizing, rotating, and placing images in the document)  
 \usepackage{amsmath}    % Advanced mathematical typesetting (supports complex equations and alignment)  
 \usepackage{amssymb}    % Additional mathematical symbols (extends symbol collection for math mode)  
 \usepackage{amsthm}     % Theorem environments (provides easy formatting for theorems, lemmas, etc.)  
@@ -22,6 +22,7 @@
 % References and Citations  
 \usepackage{hyperref}   % Hyperlinks (creates clickable references, URLs, and cross-references)  
 \usepackage{cite}       % Citation management (ensures proper formatting and sorting of citations)  
+\usepackage{cleveref}
 
 % Code and Listings  
 \usepackage{listings}   % Code inclusion (formats and highlights source code snippets)  
@@ -39,3 +40,12 @@
 \usepackage{lipsum}     % Placeholder text (generates dummy text for testing layout)  
 \usepackage{layout}     % Visualize document layout (displays margins and spacing)  
 \usepackage{mwe}        % Placeholder images and text (provides sample content for testing)  
+
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+
+% Headers and Footers
+\usepackage{lastpage}
+\usepackage{fancyhdr}
