@@ -4,7 +4,7 @@
 
 A single-column LaTeX template for engineering reports and assignments, styled after IEEE reports on A4 paper. It sets up the page layout, headers and footers, IEEE-style references, cross-referencing and code listings. It also includes worked examples of the packages engineering students use most: tables, subfigures, units, equations, plots, circuit diagrams, block diagrams and code.
 
-Each example section gives the LaTeX source alongside the result, so you can copy the parts you need and delete the rest.
+The compiled PDF explains each example, and the matching source is in the `Sections/` files, so you can compare the two, copy the parts you need and delete the rest.
 
 > [!TIP]
 > There are many YouTube videos and plenty of package documentation if you get stuck or want to learn more. Every package's manual is on [CTAN](https://ctan.org) (search for the package name).
@@ -169,7 +169,7 @@ LATEX_Template/
 │   │── Acronyms.tex              # Acronym definitions (listed at the start of the report)
 │   │── Example Section.tex       # Figures, subfigures, booktabs tables, \cref usage
 │   │── Engineering Examples.tex  # siunitx, amsmath, pgfplots, circuitikz, tikz, listings, citations
-│   │── Electrical Examples.tex   # Circuits, timing diagrams, K-maps, Bode plots, phasors, registers
+│   │── Electrical Examples.tex   # Acronyms, circuits, timing diagrams, K-maps, Bode plots, phasors, 3D plots, registers, datasheets
 │   └── Appendices.tex            # Appendix chapters, including an inserted datasheet
 │── Figures/
 │   └── test-setup.jpg         # Example photo (Figure 1 in the Example Section)
@@ -191,7 +191,7 @@ LATEX_Template/
 - **Cross-references:** label everything (`fig:`, `tab:`, `eq:`, `lst:`, `app:`) and reference it with `\cref{...}`, or `\Cref{...}` at the start of a sentence.
 - **Page layout and code style:** edit `Format Parameters.tex` and `Code Input Perameters.tex`.
 - **Section numbers:** headings are shown without numbers. To show them, delete the `\@seccntformat` line in `Format Parameters.tex`.
-- **Extra packages:** add them to `Base Packages.tex`. `cleveref` must stay after `hyperref`, so add new packages above the "References and Citations" group unless their documentation says otherwise.
+- **Extra packages:** add them to `Base Packages.tex`. Most packages can go anywhere in the file, but `cleveref` must stay after `hyperref`, so check a package's documentation if it says it needs to be loaded before or after either of them.
 
 # Contributing
 
