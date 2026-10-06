@@ -124,8 +124,12 @@ plot of a first-order low-pass filter with a cut-off of
 \subsection{Circuit Diagrams}
 
 \texttt{circuitikz} draws circuits by connecting coordinates with
-components: \verb|(x1,y1) to[R, l=$R$] (x2,y2)| places a resistor between
-two points. \Cref{fig:rc-filter} is the RC filter used in \cref{fig:bode}.
+components. For example, this places a resistor labelled $R$ between two
+points:
+\begin{center}
+    \verb|\draw (0,0) to[R, l=$R$] (4,0);|
+\end{center}
+\Cref{fig:rc-filter} is the RC filter used in \cref{fig:bode}.
 
 \begin{figure}[H]
     \centering

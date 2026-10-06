@@ -1,7 +1,3 @@
-% Narrower side margins for wide code and tables. The top margin and headsep
-% match Format Parameters.tex so the header still fits on the page.
-\newgeometry{top=19mm, bottom=20mm, left=10mm, right=10mm, headsep=6mm}
-
 \appendix
 \crefalias{chapter}{appendix} % Makes \cref{app:...} print "Appendix A" rather than "Chapter A"
 
@@ -19,6 +15,4 @@ Replace \texttt{example-image-a4} with the path to your PDF, e.g.\
 \texttt{Datasheets/LM741.pdf}. \verb|pagecommand| keeps the header and
 footer, and \verb|scale| shrinks the page so they do not overlap it.
 
-\includepdf[pages=1, scale=0.85, pagecommand={\thispagestyle{fancy}}]{example-image-a4}
-
-\restoregeometry
+\includepdf[pages=1, scale=0.8, pagecommand={\thispagestyle{fancy}}]{example-image-a4}

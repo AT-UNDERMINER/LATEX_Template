@@ -12,7 +12,7 @@ The compiled PDF explains each example, and the matching source is in the `Secti
 
 ## Features
 
-* Single-column A4 report layout with IEEE-style margins
+* Single-column A4 report layout with 19 mm side, 25 mm top and 30 mm bottom margins (set in `Format Parameters.tex`)
 * Title, author, abstract, header and footer ("Page X of Y") set from a few values in the main file
 * IEEE-style bibliography using `IEEEtran.bst`
 * Cross-referencing with `cleveref` (`\cref` / `\Cref`) throughout
