@@ -32,6 +32,7 @@ Each example section gives the LaTeX source alongside the result, so you can cop
   * `karnaugh-map` Karnaugh maps with groupings
   * `bodeplot` Bode plots straight from poles, zeros and gain
   * `steinmetz` phasor notation
+  * `pgfplots` 3D plots: magnetic field around a wire and an antenna radiation pattern surface
   * `bytefield` register maps and data frames
   * `pdfpages` datasheets inserted into the appendix
   * `acronym` acronym list, with each acronym written in full on first use
