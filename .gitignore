@@ -16,6 +16,11 @@
 *.snm
 *.vrb
 *.xdv
+*.lol
+*.run.xml
+*.auxlock
+*.ptc
+*-blx.bib
 
 # PDF and other output files
 *.pdf
@@ -31,11 +36,18 @@
 
 # Figures and generated files
 *.eps-converted-to.pdf
+*.dpth
+*.md5
+*.figlist
+*.makefile
+
+# MATLAB autosave files (Code/ folder)
+*.asv
 
 # Editor and IDE files
-*.vscode/
-*.idea/
-*.DS_Store
+.vscode/
+.idea/
+.DS_Store
 Thumbs.db
 
 # Overleaf specific
