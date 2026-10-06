@@ -41,7 +41,18 @@
 \usetikzlibrary{positioning, arrows.meta} % Relative node placement (right=of) and arrow tips (Stealth)
 \usepackage{circuitikz} % Electrical circuit diagrams (extends TikZ for electrical circuit drawings)  
 \usepackage{pgfplots}   % Plots and graphs (creates high-quality function and data plots)  
-\pgfplotsset{compat=newest} % Ensure the latest PGFPlots features are enabled  
+\pgfplotsset{compat=newest} % Ensure the latest PGFPlots features are enabled
+
+% Electrical and Electronic Engineering
+\usepackage{tikz-timing}  % Digital timing diagrams (clock, data and bus signals)
+\usepackage{karnaugh-map} % Karnaugh maps with implicant groupings
+\usepackage{silence}      % Hides specific known-harmless warnings
+\WarningsOff[ifplatform]  % Loaded by bodeplot; its shell escape warning only matters for gnuplot, which [pgf] avoids
+\usepackage[pgf]{bodeplot} % Bode plots from poles, zeros and gain ([pgf] avoids needing gnuplot)
+\usepackage{bytefield}    % Register maps and packet/frame layouts
+\usepackage{steinmetz}    % Phasor notation, e.g. 10\phase{30^\circ}
+\usepackage{pdfpages}     % Insert pages of external PDFs (datasheets, schematics)
+\usepackage[printonlyused]{acronym} % Acronyms: spelt out on first use, abbreviated after
 
 % Miscellaneous  
 \usepackage{lipsum}     % Placeholder text (generates dummy text for testing layout)  

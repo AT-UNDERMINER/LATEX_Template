@@ -20,14 +20,18 @@
 
 \lipsum[2]
 
-A single figure is shown in \cref{fig:single}. Always place the
-\verb|\label| \emph{after} the \verb|\caption|, otherwise the reference
-will point to the section instead of the figure.
+A single figure is shown in \cref{fig:single}. Keep your images in the
+\texttt{Figures/} folder and include them by path; the file extension can
+be left off. JPG and PNG suit photos and screenshots, while PDF keeps
+plots and diagrams exported from MATLAB, KiCad and similar programs sharp
+at any zoom. Always place the \verb|\label| \emph{after} the
+\verb|\caption|, otherwise the reference will point to the section instead
+of the figure.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{example-image}
-    \caption{A single figure.}
+    \includegraphics[width=0.6\linewidth]{Figures/test-setup}
+    \caption{An example photograph loaded from the \texttt{Figures/} folder.}
     \label{fig:single}
 \end{figure}
 
