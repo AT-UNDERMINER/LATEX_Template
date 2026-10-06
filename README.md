@@ -1,79 +1,196 @@
-# IEEE Style LaTeX Template
+# Engineering Report LaTeX Template
 
 ## Overview
 
-This repository provides a LaTeX template for IEEE-style papers, including proper formatting, section structures, bibliography management, and example content. It is designed to be used for conference and journal submissions that adhere to IEEE guidelines.
+A single-column LaTeX template for engineering reports and assignments, styled after IEEE reports on A4 paper. It sets up the page layout, headers and footers, IEEE-style references, cross-referencing and code listings. It also includes worked examples of the packages engineering students use most: tables, subfigures, units, equations, plots, circuit diagrams, block diagrams and code.
+
+Each example section gives the LaTeX source alongside the result, so you can copy the parts you need and delete the rest.
 
 > [!TIP]
-> There is a plethora of YouTube videos and documentation for each package and how to use LaTeX in general if you get stuck or want more information.
->Large Language Models (LLMs) like ChatGPT are very useful for formatting and finding information on LaTeX.
+> There are many YouTube videos and plenty of package documentation if you get stuck or want to learn more. Every package's manual is on [CTAN](https://ctan.org) (search for the package name).
+> Large Language Models (LLMs) such as Claude or ChatGPT are also very useful for formatting help and finding the right LaTeX command.
 
 ## Features
 
-* Pre-formatted IEEE-style report layout (single-column format)
-* Proper title, author, and abstract sections
-* Predefined section structure (Introduction, Methods, Results, etc.)
-* Bibliography management using `IEEEtran.bst`
-* Example figures and subfigures (`subcaption`)
-* Example `booktabs` tables, including `siunitx` decimal-aligned and grouped columns
+* Single-column A4 report layout with IEEE-style margins
+* Title, author, abstract, header and footer ("Page X of Y") set from a few values in the main file
+* IEEE-style bibliography using `IEEEtran.bst`
 * Cross-referencing with `cleveref` (`\cref` / `\Cref`) throughout
 * All figures and tables fixed in place with `[H]`
-* Engineering examples: `siunitx` units, `amsmath` derivations and matrices, `pgfplots` plots from CSV data, `circuitikz` circuits, `tikz` block diagrams, and G-code/CODESYS/MATLAB listings
+* Example figures and subfigures (`subcaption`)
+* Example `booktabs` tables, including `siunitx` decimal-aligned and grouped columns
+* Engineering examples:
+  * `siunitx` units and numbers
+  * `amsmath` derivations, matrices and piecewise functions
+  * `pgfplots` plots from CSV data and from equations (including Bode plots)
+  * `circuitikz` circuit diagrams
+  * `tikz` block diagrams
+  * G-code, CODESYS Structured Text and MATLAB code listings
+* Electrical and electronic examples:
+  * `circuitikz` American and European (IEC) symbols, op-amps and logic gates
+  * `tikz-timing` digital timing diagrams
+  * `karnaugh-map` Karnaugh maps with groupings
+  * `bodeplot` Bode plots straight from poles, zeros and gain
+  * `steinmetz` phasor notation
+  * `bytefield` register maps and data frames
+  * `pdfpages` datasheets inserted into the appendix
+  * `acronym` acronym list, with each acronym written in full on first use
 * Compatible with Overleaf and local LaTeX distributions
-* Easy to modify and extend
-  
-# Installation & Usage
 
-## 1. Using Overleaf
+# Installation
 
-  1. Clone or download this repository.
-  2. Upload the files to Overleaf.
-  3. Compile using `pdflatex`.
+You can either use the template online with Overleaf (nothing to install) or install LaTeX on your own computer. A local install works offline, has no compile time limits and works well with VS Code.
 
-## 2. Using Local LaTeX Distribution
-1. Ensure you have a LaTeX distribution installed (TeX Live, MikTeX, etc.).
+## Option 1: Overleaf (online)
 
->[!IMPORTANT]
-> As well as a LaTeX distribution (TeX Live, MikTeX, etc.), you will also need "Strawberry Perl" in order to use the template.
-
-3. Clone this repository:
-```
-git clone https://github.com/AT-UNDERMINER/IEEE-LaTeX-Template.git
-cd IEEE-LaTeX-Template
-```
-3. Compile the main.tex file:
-```latex
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
-```
-Open main.pdf to view the output.
+1. On this repository's GitHub page, click **Code > Download ZIP**.
+2. Sign in to [Overleaf](https://www.overleaf.com), then click **New Project > Upload Project** and select the ZIP file.
+3. Open **Menu** (top left) and check that:
+   * **Main document** is set to `IEEE Report Template.tex`
+   * **Compiler** is set to `pdfLaTeX`
+4. Click **Recompile**.
 
 > [!NOTE]
-> I personally use VSCode with the extension "LaTeX Workshop" by "James Yu" in combination with MikTeX and Strawberry Perl.
-> This combination handles all the multi-step compiling required for the bibliography and references in one button press. 
+> The free Overleaf plan has a compile time limit. Large reports with many `pgfplots` or `tikz` figures may hit this limit; a local install does not have this problem.
+
+## Option 2: Local install
+
+A local setup needs three things:
+
+1. **A LaTeX distribution:** the compiler and packages (MiKTeX, TeX Live or MacTeX)
+2. **Perl:** needed by `latexmk`, the tool that runs all the compile steps for you. It's already included with TeX Live and MacTeX.
+3. **An editor:** VS Code with the LaTeX Workshop extension is recommended
+
+### Windows
+
+You can use either **MiKTeX** (smaller, installs packages as needed) or **TeX Live** (one large install with every package).
+
+**MiKTeX (recommended)**
+
+1. Download and run the installer from [miktex.org/download](https://miktex.org/download).
+2. When asked about missing packages, choose **Install missing packages on-the-fly: Yes**. Otherwise, the first compile stops with a pop-up for every package the template needs.
+3. After installing, open **MiKTeX Console** and click **Check for updates**, then **Update now**.
+4. Install **Strawberry Perl** from [strawberryperl.com](https://strawberryperl.com). MiKTeX does not include Perl, and `latexmk` will not run without it.
+
+**TeX Live (alternative)**
+
+1. Download `install-tl-windows.exe` from [tug.org/texlive](https://tug.org/texlive/acquire-netinstall.html) and run it.
+2. Keep the default **full** scheme. The download is several gigabytes and can take an hour or more.
+3. Perl is included, so Strawberry Perl is not needed.
+
+### macOS
+
+1. Install **MacTeX** from [tug.org/mactex](https://tug.org/mactex/). It is a large download (around 6 GB) and includes everything, including Perl.
+   * If you use Homebrew: `brew install --cask mactex`
+
+### Linux
+
+Install TeX Live from your package manager. The full install is the simplest option:
+
+```bash
+# Debian / Ubuntu
+sudo apt install texlive-full
+
+# Fedora
+sudo dnf install texlive-scheme-full
+```
+
+### Check the install
+
+Close and reopen your terminal (or restart your computer) so the new programs are found, then run:
+
+```bash
+pdflatex --version
+latexmk --version
+perl --version
+```
+
+Each command should print a version number. If one says "command not found" or "not recognized", that part is not installed or is not on your PATH.
+
+## Editor: VS Code with LaTeX Workshop
+
+1. Install [VS Code](https://code.visualstudio.com).
+2. Open the **Extensions** panel (`Ctrl+Shift+X`) and install **LaTeX Workshop** by James Yu.
+3. Restart VS Code so it picks up the LaTeX install.
+4. Open the template folder (**File > Open Folder**) and open `IEEE Report Template.tex`.
+5. Build with `Ctrl+Alt+B` (or save the file; it builds automatically) and view the PDF with `Ctrl+Alt+V`.
+
+LaTeX Workshop uses `latexmk` by default, which runs `pdflatex` and `bibtex` as many times as needed so references, citations and page numbers are all correct, in one click.
+
+> [!NOTE]
+> I personally use VS Code with LaTeX Workshop, MiKTeX and Strawberry Perl.
+
+# Usage
+
+## Getting the template
+
+Either download the ZIP from GitHub (**Code > Download ZIP**) or clone it:
+
+```bash
+git clone https://github.com/AT-UNDERMINER/LATEX_Template.git
+cd LATEX_Template
+```
+
+## Compiling from the command line
+
+If you are not using VS Code or Overleaf, compile with `latexmk`. The quotes are needed because the file name contains spaces:
+
+```bash
+latexmk -pdf "IEEE Report Template.tex"
+```
+
+Open `IEEE Report Template.pdf` to view the output. To delete the build files afterwards, run `latexmk -c`.
+
+## Filling in your details
+
+Near the top of `IEEE Report Template.tex`, change these values. They are used in the title, header and footer:
+
+```latex
+\def\name{First and Last Name}
+\def\subjectcode{Subject Code}
+\def\studentnumber{Student Number}
+\def\doctitle{Document Title}
+\def\institution{Name of institution}
+```
+
+Also replace `Email Address` in the `\author` line and write your abstract in the `abstract` environment.
 
 # File Structure
 
-```latex
-IEEE-LaTeX-Template/
-│── main.tex          # Main LaTeX file
-│── references.bib    # Bibliography file
-│── figures/          # Directory for figures
-│── sections/         # Separate section files (optional)
-│── Data/             # CSV data for pgfplots plots
-│── Code/             # Source code included with \lstinputlisting
-│── output.pdf        # Example compiled output
-└── README.md         # This README file
 ```
-# Customization
+LATEX_Template/
+│── IEEE Report Template.tex   # Main file: your details, abstract and the list of sections
+│── Base Packages.tex          # All packages loaded by the template
+│── Format Parameters.tex      # Page margins, header/footer and numbering settings
+│── Code Input Perameters.tex  # Code listing styles (MATLAB, G-code, CODESYS)
+│── references.bib             # Bibliography entries
+│── Sections/
+│   │── Acronyms.tex              # Acronym definitions (listed at the start of the report)
+│   │── Example Section.tex       # Figures, subfigures, booktabs tables, \cref usage
+│   │── Engineering Examples.tex  # siunitx, amsmath, pgfplots, circuitikz, tikz, listings, citations
+│   │── Electrical Examples.tex   # Circuits, timing diagrams, K-maps, Bode plots, phasors, registers
+│   └── Appendices.tex            # Appendix chapters, including an inserted datasheet
+│── Figures/
+│   └── test-setup.jpg         # Example photo (Figure 1 in the Example Section)
+│── Data/
+│   └── step_response.csv      # Example data plotted with pgfplots
+│── Code/
+│   └── step_response.m        # Example code included with \lstinputlisting
+└── README.md                  # This file
+```
 
-- Modify `main.tex` to change title, authors, and abstract.
-- Update `references.bib` for your bibliography.
-- Add figures in the `figures/` directory and reference them in the text.
-- Make changes to the Format Parameters.tex and Code Input Parameters.tex to suit your exact requirements for page layout and code style.
-- Add other packages into the Base Packages.tex to add extra functionality you may require. 
+# Customisation
+
+- **Sections:** write each section in its own file in `Sections/` and add it to the main file with `\input{Sections/Your Section}`. Remove the example sections once you no longer need them.
+- **Figures:** put your images in the `Figures/` folder and include them with `\includegraphics[width=0.8\linewidth]{Figures/your-image}`. Use JPG or PNG for photos and screenshots, and PDF for plots and diagrams so they stay sharp.
+- **Datasheets:** put PDFs in a `Datasheets/` folder and insert them with `\includepdf[pages=-]{Datasheets/your-datasheet}` (see `Appendices.tex`). Build PDFs are ignored by git, but PDFs in `Figures/` and `Datasheets/` are kept.
+- **Acronyms:** add them to `Sections/Acronyms.tex` and write `\ac{KEY}` in the text. Only acronyms you use appear in the list.
+- **Circuit symbols:** for IEC/European symbols throughout (as used in Australian Standards), change `\usepackage{circuitikz}` to `\usepackage[european]{circuitikz}` in `Base Packages.tex`.
+- **References:** add entries to `references.bib` and cite them with `\cite{key}`. The main file uses `\nocite{*}`, which lists *every* entry in the bibliography even if it is not cited. Remove it if you only want cited sources.
+- **Cross-references:** label everything (`fig:`, `tab:`, `eq:`, `lst:`, `app:`) and reference it with `\cref{...}`, or `\Cref{...}` at the start of a sentence.
+- **Page layout and code style:** edit `Format Parameters.tex` and `Code Input Perameters.tex`.
+- **Section numbers:** headings are shown without numbers. To show them, delete the `\@seccntformat` line in `Format Parameters.tex`.
+- **Extra packages:** add them to `Base Packages.tex`. `cleveref` must stay after `hyperref`, so add new packages above the "References and Citations" group unless their documentation says otherwise.
 
 # Contributing
 
