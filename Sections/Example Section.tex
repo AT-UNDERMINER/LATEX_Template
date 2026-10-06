@@ -1,33 +1,199 @@
+% =====================================================================
+% Example Section
+% ---------------------------------------------------------------------
+% Every cross-reference in this template uses cleveref:
+%   \cref{key}  -> "Figure 1", "Table 2", "Equation (3)" ...  (mid-sentence)
+%   \Cref{key}  -> same, but capitalised  (start of a sentence)
+%   \cref{a,b}  -> "Figures 1 and 2"   (lists are sorted and compressed)
+%   \crefrange{a}{c} -> "Figures 1 to 3"
+% Label with a prefix so keys are easy to find: fig:, tab:, eq:, lst:, app:
+% Never type "Figure~\ref{...}" by hand; cleveref adds the name for you.
+%
+% Every figure and table uses [H] (from the float package) so it is placed
+% exactly where it appears in the source instead of floating elsewhere.
+% =====================================================================
+
 \section{Example Section}
-\subsection{Sub Section Title}
+\label{sec:example}
 
-\lipsum[2-3]
+\subsection{Figures}
 
-\begin{figure}[ht]
+\lipsum[2]
+
+A single figure is shown in \cref{fig:single}. Always place the
+\verb|\label| \emph{after} the \verb|\caption|, otherwise the reference
+will point to the section instead of the figure.
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{example-image}
-    \caption{}
-\end{figure}
-\break
-\newpage
-
-\subsection{Sub Section Title}
-\lipsum[3-4]
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=1\linewidth]{example-image}
-    \caption{}
+    \includegraphics[width=0.6\linewidth]{example-image}
+    \caption{A single figure.}
+    \label{fig:single}
 \end{figure}
 
-\subsection{Sub Section Title}
+\subsubsection{Side-by-side subfigures}
 
-\lipsum[4-5]
+\Cref{fig:pair} contains two subfigures. Each subfigure can be referenced
+on its own, e.g.\ \cref{fig:pair-a} shows the input and \cref{fig:pair-b}
+shows the response. Several labels can be passed at once:
+\cref{fig:single,fig:pair}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{example-image}
-    \caption{}
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-a}
+        \caption{Step input.}
+        \label{fig:pair-a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-b}
+        \caption{System response.}
+        \label{fig:pair-b}
+    \end{subfigure}
+    \caption{Two subfigures placed side by side.}
+    \label{fig:pair}
 \end{figure}
+
+\subsubsection{Grid of subfigures}
+
+A $2 \times 2$ grid is built by inserting a blank line (paragraph break)
+after every second subfigure, as in \cref{fig:grid}. The four panels,
+\crefrange{fig:grid-a}{fig:grid-d}, could be different test conditions.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-a}
+        \caption{\qty{25}{\celsius}}
+        \label{fig:grid-a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-b}
+        \caption{\qty{50}{\celsius}}
+        \label{fig:grid-b}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-c}
+        \caption{\qty{75}{\celsius}}
+        \label{fig:grid-c}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image}
+        \caption{\qty{100}{\celsius}}
+        \label{fig:grid-d}
+    \end{subfigure}
+    \caption{A $2 \times 2$ grid of subfigures.}
+    \label{fig:grid}
+\end{figure}
+
+\subsection{Tables}
+
+All tables use \texttt{booktabs}: \verb|\toprule|, \verb|\midrule| and
+\verb|\bottomrule| replace \verb|\hline|, and vertical lines are not used.
+Table captions go \emph{above} the table.
+
+\subsubsection{Basic table}
+
+\Cref{tab:basic} is the simplest booktabs layout.
+
+\begin{table}[H]
+    \centering
+    \caption{Material properties at room temperature.}
+    \label{tab:basic}
+    \begin{tabular}{lccc}
+        \toprule
+        Material  & Density (\si{\kilo\gram\per\cubic\metre}) & $E$ (\si{\giga\pascal}) & $\nu$ \\
+        \midrule
+        Steel     & 7850 & 200 & 0.30 \\
+        Aluminium & 2700 & 69  & 0.33 \\
+        Titanium  & 4500 & 116 & 0.34 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Numbers aligned on the decimal point}
+
+\Cref{tab:siunitx} uses \texttt{siunitx} \texttt{S} columns so values line
+up on the decimal point. \verb|table-format=3.2| means up to 3 digits before
+and 2 after the decimal point. Wrap text headers in braces \verb|{...}|.
+
+\begin{table}[H]
+    \centering
+    \caption{Measured voltage and current for the test circuit.}
+    \label{tab:siunitx}
+    \begin{tabular}{
+        l
+        S[table-format=2.2]
+        S[table-format=1.3]
+        S[table-format=3.1]
+    }
+        \toprule
+        {Test} & {Voltage (\si{\volt})} & {Current (\si{\ampere})} & {Power (\si{\watt})} \\
+        \midrule
+        T1 & 5.00  & 0.125 & 0.6   \\
+        T2 & 12.00 & 1.040 & 12.5  \\
+        T3 & 24.50 & 4.210 & 103.1 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Grouped columns}
+
+\Cref{tab:grouped} groups columns with \verb|\multicolumn| and underlines
+each group with \verb|\cmidrule(lr){a-b}|. The \verb|(lr)| trims the rule
+so neighbouring groups do not touch. \verb|\addlinespace| separates row
+groups without drawing a line.
+
+\begin{table}[H]
+    \centering
+    \caption{Comparison of simulated and experimental results.}
+    \label{tab:grouped}
+    \begin{tabular}{l S[table-format=2.1] S[table-format=2.1] S[table-format=2.1] S[table-format=2.1]}
+        \toprule
+        & \multicolumn{2}{c}{Simulation} & \multicolumn{2}{c}{Experiment} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+        {Case} & {Rise (\si{\milli\second})} & {Overshoot (\%)} & {Rise (\si{\milli\second})} & {Overshoot (\%)} \\
+        \midrule
+        P controller   & 12.4 & 18.2 & 13.1 & 20.5 \\
+        PI controller  & 10.8 & 9.6  & 11.5 & 11.2 \\
+        \addlinespace
+        PID controller & 8.2  & 4.1  & 9.0  & 5.3  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Equations and Code}
+
+Equations are referenced the same way. \Cref{eq:ohm} is Ohm's law and
+\cref{eq:power} gives the power used to fill in \cref{tab:siunitx}.
+\begin{equation}
+    V = IR
+    \label{eq:ohm}
+\end{equation}
+\begin{equation}
+    P = VI = I^2 R
+    \label{eq:power}
+\end{equation}
+
+Code listings take the label as an option, as in \cref{lst:example}. Longer
+listings belong in the appendix, see \cref{app:code}.
+
+\begin{lstlisting}[caption={Calculating power from measured data.}, label={lst:example}]
+V = [5.00 12.00 24.50];     % Voltage (V)
+I = [0.125 1.040 4.210];    % Current (A)
+P = V .* I;                 % Power (W)
+\end{lstlisting}
 
 \cleardoublepage

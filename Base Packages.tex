@@ -12,7 +12,10 @@
 % Figures and Captions  
 \usepackage{caption}    % Customizing captions (allows formatting figure and table captions)  
 \usepackage{subcaption} % Subfigures (enables multiple figures under a single caption)  
-\usepackage{float}      % Precise figure placement (provides control using [H] option for strict placement)  
+\usepackage{float}      % Precise figure placement (provides control using [H] option for strict placement)
+
+% Tables
+\usepackage{booktabs}   % Professional tables (\toprule, \midrule, \bottomrule and \cmidrule instead of \hline)
 
 % Colors and Text  
 \usepackage{xcolor}     % Colored text (define and use colors in text and backgrounds)  
@@ -22,7 +25,10 @@
 % References and Citations  
 \usepackage{hyperref}   % Hyperlinks (creates clickable references, URLs, and cross-references)  
 \usepackage{cite}       % Citation management (ensures proper formatting and sorting of citations)  
-\usepackage{cleveref}
+\usepackage[capitalise,nameinlink]{cleveref} % Smart references: \cref{fig:x} gives "Figure 1" (must load after hyperref)
+\crefname{figure}{Figure}{Figures}           % "Figure 1" rather than "Fig. 1"
+\crefname{equation}{Equation}{Equations}     % "Equation (1)" rather than "Eq. (1)"
+\crefname{lstlisting}{Listing}{Listings}     % Name used for code listings
 
 % Code and Listings  
 \usepackage{listings}   % Code inclusion (formats and highlights source code snippets)  
@@ -31,7 +37,8 @@
 \usepackage{siunitx}    % Proper typesetting of units and numbers (handles SI units consistently)  
 
 % Drawing and Diagrams  
-\usepackage{tikz}       % General drawing tool (allows creating diagrams, graphs, and free-body diagrams)  
+\usepackage{tikz}       % General drawing tool (allows creating diagrams, graphs, and free-body diagrams)
+\usetikzlibrary{positioning, arrows.meta} % Relative node placement (right=of) and arrow tips (Stealth)
 \usepackage{circuitikz} % Electrical circuit diagrams (extends TikZ for electrical circuit drawings)  
 \usepackage{pgfplots}   % Plots and graphs (creates high-quality function and data plots)  
 \pgfplotsset{compat=newest} % Ensure the latest PGFPlots features are enabled  
@@ -42,8 +49,6 @@
 \usepackage{mwe}        % Placeholder images and text (provides sample content for testing)  
 
 
-\usepackage{listings}
-\usepackage{xcolor}
 \usepackage[utf8]{inputenc}
 
 % Headers and Footers

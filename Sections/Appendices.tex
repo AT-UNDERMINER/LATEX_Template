@@ -1,10 +1,11 @@
 \newgeometry{top=5mm, bottom=20mm, left=10mm, right=10mm}
-\onecolumn
 
 \appendix
+\crefalias{chapter}{appendix} % Makes \cref{app:...} print "Appendix A" rather than "Chapter A"
 
 
 \chapter{}
+\label{app:code}
 
 \lipsum[6]
 

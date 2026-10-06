@@ -10,11 +10,15 @@ This repository provides a LaTeX template for IEEE-style papers, including prope
 
 ## Features
 
-* Pre-formatted IEEE paper layout (two-column format)
+* Pre-formatted IEEE-style report layout (single-column format)
 * Proper title, author, and abstract sections
 * Predefined section structure (Introduction, Methods, Results, etc.)
 * Bibliography management using `IEEEtran.bst`
-* Example figures
+* Example figures and subfigures (`subcaption`)
+* Example `booktabs` tables, including `siunitx` decimal-aligned and grouped columns
+* Cross-referencing with `cleveref` (`\cref` / `\Cref`) throughout
+* All figures and tables fixed in place with `[H]`
+* Engineering examples: `siunitx` units, `amsmath` derivations and matrices, `pgfplots` plots from CSV data, `circuitikz` circuits, `tikz` block diagrams, and G-code/CODESYS/MATLAB listings
 * Compatible with Overleaf and local LaTeX distributions
 * Easy to modify and extend
   
@@ -58,6 +62,8 @@ IEEE-LaTeX-Template/
 │── references.bib    # Bibliography file
 │── figures/          # Directory for figures
 │── sections/         # Separate section files (optional)
+│── Data/             # CSV data for pgfplots plots
+│── Code/             # Source code included with \lstinputlisting
 │── output.pdf        # Example compiled output
 └── README.md         # This README file
 ```

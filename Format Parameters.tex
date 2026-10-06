@@ -7,8 +7,18 @@
             columnsep=6mm]{geometry}
 
 \makeatletter
-\renewcommand{\@seccntformat}[1]{}
+\renewcommand{\@seccntformat}[1]{} % Hides section numbers in headings
 \makeatother
+
+% The report class numbers floats per chapter (Figure 0.1). The main body has no
+% chapters, so number figures, tables and equations plainly (Figure 1).
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
+
+% Table captions go above the table (booktabs convention)
+\captionsetup[table]{position=top}
+
 \pagestyle{fancy}
 \fancyhf{} 
 \setlength{\headheight}{15pt}
