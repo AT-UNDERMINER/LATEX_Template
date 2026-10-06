@@ -24,6 +24,9 @@
 
 # PDF and other output files
 *.pdf
+# ...but keep PDFs that are inputs to the report
+!Figures/**/*.pdf
+!Datasheets/**/*.pdf
 *.dvi
 *.ps
 
@@ -40,6 +43,7 @@
 *.md5
 *.figlist
 *.makefile
+*-tf2zpk*
 
 # MATLAB autosave files (Code/ folder)
 *.asv
