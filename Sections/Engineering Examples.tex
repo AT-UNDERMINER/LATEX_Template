@@ -129,8 +129,8 @@ two points. \Cref{fig:rc-filter} is the RC filter used in \cref{fig:bode}.
 
 \begin{figure}[H]
     \centering
-    \begin{circuitikz}
-        \draw (0,0) to[V, l=$V_\text{in}$] (0,3)
+    \begin{circuitikz}[american]
+        \draw (0,0) to[V, invert, l=$V_\text{in}$] (0,3)
                     to[R, l=$R$, a=\qty{10}{\kilo\ohm}] (4,3)
                     to[C, l=$C$, a=\qty{1}{\micro\farad}] (4,0)
                     -- (0,0);
