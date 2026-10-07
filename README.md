@@ -15,7 +15,7 @@ The compiled PDF explains each example, and the matching source is in the `Secti
 * Single-column A4 report layout with 19 mm side, 25 mm top and 30 mm bottom margins (set in `Format Parameters.tex`)
 * Title, author, abstract, header and footer ("Page X of Y") set from a few values in the main file
 * IEEE-style bibliography using `IEEEtran.bst`
-* Cross-referencing with `cleveref` (`\cref` / `\Cref`) throughout, in IEEE style: "Fig. 1", "Fig. 2(a)", "(1)" (or "Equation (1)" at the start of a sentence) and "Table I"
+* Cross-referencing with `cleveref` (`\cref` / `\Cref`) throughout, in IEEE style: "Section II-A", "Fig. 1", "Fig. 2(a)", "(1)" (or "Equation (1)" at the start of a sentence) and "Table I"
 * IEEE caption style ("Fig. 1." below figures, "TABLE I" above tables) and reference list placed after the appendices
 * All figures and tables fixed in place with `[H]`
 * Example figures and subfigures (`subcaption`)
@@ -191,7 +191,7 @@ LATEX_Template/
 - **References:** add entries to `references.bib` and cite them with `\cite{key}`. The main file uses `\nocite{*}`, which lists *every* entry in the bibliography even if it is not cited. Remove it if you only want cited sources.
 - **Cross-references:** label everything (`fig:`, `tab:`, `eq:`, `lst:`, `app:`) and reference it with `\cref{...}`, or `\Cref{...}` at the start of a sentence. The IEEE reference and caption styles are set in `Base Packages.tex` and `Format Parameters.tex`.
 - **Page layout and code style:** edit `Format Parameters.tex` and `Code Input Perameters.tex`.
-- **Section numbers:** headings are shown without numbers. To show them, delete the `\@seccntformat` line in `Format Parameters.tex`.
+- **Section headings:** these follow IEEE style: "I. INTRODUCTION" (Roman numeral, centred, small capitals), "A. Subsection" (italic) and "1) Subsubsection:" (italic, run into the paragraph). Reference them with `\cref{sec:...}`, which gives "Section II-A". The heading styles are set in `Format Parameters.tex`.
 - **Extra packages:** add them to `Base Packages.tex`. Most packages can go anywhere in the file, but `cleveref` must stay after `hyperref`, so check a package's documentation if it says it needs to be loaded before or after either of them.
 
 # Contributing
