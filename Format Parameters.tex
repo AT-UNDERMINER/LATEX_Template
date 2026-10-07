@@ -21,6 +21,11 @@
 \titlespacing*{\subsection}{0pt}{2ex plus 1ex minus .2ex}{1ex plus .2ex}
 \titlespacing*{\subsubsection}{1em}{1.5ex plus .5ex minus .2ex}{0.5em}
 
+% Chapters are only used for the appendices and the reference list. IEEE sets these
+% as primary headings: "APPENDIX A" with the title on the next line, and "REFERENCES".
+\titleformat{\chapter}[display]{\normalfont\normalsize\scshape\centering}{\chaptertitlename\ \thechapter}{0.5ex}{}
+\titlespacing*{\chapter}{0pt}{0pt}{2ex}
+
 % The report class numbers floats per chapter (Figure 0.1). The main body has no
 % chapters, so number figures, tables and equations plainly (Fig. 1).
 \counterwithout{figure}{chapter}
@@ -54,3 +59,4 @@
 \fancyfootoffset[R]{0pt}
 \fancyfoot[R]{Page \thepage\ of \pageref{LastPage}} 
 \renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{} % Appendix and References pages use the same header and footer
