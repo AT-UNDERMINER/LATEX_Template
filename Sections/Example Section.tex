@@ -5,7 +5,7 @@
 %   \cref{key}  -> "Fig. 1", "Fig. 2(a)", "Table I", "(3)"  (mid-sentence)
 %   \Cref{key}  -> same, except equations: "Equation (3)"   (start of a sentence)
 %   \cref{a,b}  -> "Figs. 1 and 2"   (lists are sorted and compressed)
-%   \crefrange{a}{c} -> "Figs. 1 to 3"
+%   \crefrange{a}{c} -> "Figs. 1--3"
 % Label with a prefix so keys are easy to find: fig:, tab:, eq:, lst:, app:
 % Never type "Fig.~\ref{...}" by hand; cleveref adds the name for you.
 %
@@ -26,12 +26,13 @@ be left off. JPG and PNG suit photos and screenshots, while PDF keeps
 plots and diagrams exported from MATLAB, KiCad and similar programs sharp
 at any zoom. Always place the \verb|\label| \emph{after} the
 \verb|\caption|, otherwise the reference will point to the section instead
-of the figure.
+of the figure. IEEE style also avoids starting a caption with ``A'',
+``An'' or ``The''.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{Figures/test-setup}
-    \caption{An example photograph loaded from the \texttt{Figures/} folder.}
+    \caption{Example photograph loaded from the \texttt{Figures/} folder.}
     \label{fig:single}
 \end{figure}
 
@@ -98,7 +99,7 @@ after every second subfigure, as in \cref{fig:grid}. The four panels,
         \caption{\qty{100}{\celsius}}
         \label{fig:grid-d}
     \end{subfigure}
-    \caption{A $2 \times 2$ grid of subfigures.}
+    \caption{$2 \times 2$ grid of subfigures.}
     \label{fig:grid}
 \end{figure}
 
@@ -106,7 +107,8 @@ after every second subfigure, as in \cref{fig:grid}. The four panels,
 
 All tables use \texttt{booktabs}: \verb|\toprule|, \verb|\midrule| and
 \verb|\bottomrule| replace \verb|\hline|, and vertical lines are not used.
-Table captions go \emph{above} the table.
+Table captions go \emph{above} the table and, in IEEE style, do not end
+with a full stop.
 
 \subsubsection{Basic table}
 
@@ -114,7 +116,7 @@ Table captions go \emph{above} the table.
 
 \begin{table}[H]
     \centering
-    \caption{Material properties at room temperature.}
+    \caption{Material properties at room temperature}
     \label{tab:basic}
     \begin{tabular}{lccc}
         \toprule
@@ -135,7 +137,7 @@ and 2 after the decimal point. Wrap text headers in braces \verb|{...}|.
 
 \begin{table}[H]
     \centering
-    \caption{Measured voltage and current for the test circuit.}
+    \caption{Measured voltage and current for the test circuit}
     \label{tab:siunitx}
     \begin{tabular}{
         l
@@ -162,7 +164,7 @@ groups without drawing a line.
 
 \begin{table}[H]
     \centering
-    \caption{Comparison of simulated and experimental results.}
+    \caption{Comparison of simulated and experimental results}
     \label{tab:grouped}
     \begin{tabular}{l S[table-format=2.1] S[table-format=2.1] S[table-format=2.1] S[table-format=2.1]}
         \toprule

@@ -24,22 +24,32 @@
 
 % References and Citations  
 \usepackage{hyperref}   % Hyperlinks (creates clickable references, URLs, and cross-references)  
-\usepackage{cite}       % Citation management (ensures proper formatting and sorting of citations)  
+\usepackage{cite}       % Citation management (ensures proper formatting and sorting of citations)
+\renewcommand{\citepunct}{], [} % IEEE style: [1], [3] rather than [1,3]
+\renewcommand{\citedash}{]--[}  % IEEE style: [1]--[3] rather than [1--3]
 \usepackage[capitalise,nameinlink]{cleveref} % Smart references: \cref{fig:x} gives "Fig. 1" (must load after hyperref)
 % IEEE reference style:
-%   Figures:   "Fig. 1" everywhere, even at the start of a sentence
-%   Equations: "(1)" mid-sentence (\cref), "Equation (1)" at the start of a sentence (\Cref)
-%   Tables:    "Table I" (Roman numerals are set in Format Parameters.tex)
+%   Figures:    "Fig. 1" everywhere, even at the start of a sentence; "Figs. 3--5" for ranges
+%   Subfigures: "Fig. 2(a)", and the singular "Fig. 3(a)--3(d)" for parts of one figure
+%   Equations:  "(1)" mid-sentence (\cref), "Equation (1)" at the start of a sentence (\Cref)
+%   Tables:     "Table I" (Roman numerals are set in Format Parameters.tex)
+\newcommand{\crefrangeconjunction}{--} % En dash for ranges: "Figs. 3--5", "(1)--(3)"
 \crefname{figure}{Fig.}{Figs.}
 \Crefname{figure}{Fig.}{Figs.}
+\crefformat{subfigure}{Fig.~#2#1#3}
+\Crefformat{subfigure}{Fig.~#2#1#3}
+\crefmultiformat{subfigure}{Fig.~#2#1#3}{ and~#2#1#3}{, #2#1#3}{, and~#2#1#3}
+\Crefmultiformat{subfigure}{Fig.~#2#1#3}{ and~#2#1#3}{, #2#1#3}{, and~#2#1#3}
+\crefrangeformat{subfigure}{Fig.~#3#1#4--#5#2#6}
+\Crefrangeformat{subfigure}{Fig.~#3#1#4--#5#2#6}
 \crefname{table}{Table}{Tables}
 \Crefname{table}{Table}{Tables}
 \crefformat{equation}{#2(#1)#3}
 \Crefformat{equation}{Equation~#2(#1)#3}
 \crefmultiformat{equation}{#2(#1)#3}{ and~#2(#1)#3}{, #2(#1)#3}{, and~#2(#1)#3}
 \Crefmultiformat{equation}{Equations~#2(#1)#3}{ and~#2(#1)#3}{, #2(#1)#3}{, and~#2(#1)#3}
-\crefrangeformat{equation}{#3(#1)#4 to~#5(#2)#6}
-\Crefrangeformat{equation}{Equations~#3(#1)#4 to~#5(#2)#6}
+\crefrangeformat{equation}{#3(#1)#4--#5(#2)#6}
+\Crefrangeformat{equation}{Equations~#3(#1)#4--#5(#2)#6}
 \crefname{lstlisting}{Listing}{Listings}     % Name used for code listings
 
 % Code and Listings  
