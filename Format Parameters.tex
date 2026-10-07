@@ -11,13 +11,23 @@
 \makeatother
 
 % The report class numbers floats per chapter (Figure 0.1). The main body has no
-% chapters, so number figures, tables and equations plainly (Figure 1).
+% chapters, so number figures, tables and equations plainly (Fig. 1).
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 \counterwithout{equation}{chapter}
 
-% Table captions go above the table (booktabs convention)
-\captionsetup[table]{position=top}
+% IEEE caption style
+%   Figures:    "Fig. 1. Caption text." below the figure
+%   Subfigures: "(a) Caption text." and referenced as "Fig. 2(a)"
+%   Tables:     "TABLE I" with the title in small capitals on the next line, above the table
+\captionsetup[figure]{name=Fig., labelsep=period}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\captionsetup[sub]{labelformat=simple}
+\renewcommand{\thetable}{\Roman{table}}
+\captionsetup[table]{position=top, name=TABLE, labelsep=newline, textfont=sc, justification=centering}
+
+% IEEE uses "References" as the heading for the reference list
+\renewcommand{\bibname}{References}
 
 \pagestyle{fancy}
 \fancyhf{} 
