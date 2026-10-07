@@ -43,22 +43,27 @@ on its own, e.g.\ \cref{fig:pair-a} shows the input and \cref{fig:pair-b}
 shows the response. Several labels can be passed at once:
 \cref{fig:single,fig:pair}.
 
+In IEEE style, each subfigure is marked only with its letter, using an
+empty \verb|\caption{}| followed by its \verb|\label|. The description of
+each part goes in the main caption after the figure title, e.g.\
+\verb|\caption{Title. (a) First part. (b) Second part.}|.
+
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.48\linewidth}
         \centering
         \includegraphics[width=\linewidth]{example-image-a}
-        \caption{Step input.}
+        \caption{}
         \label{fig:pair-a}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\linewidth}
         \centering
         \includegraphics[width=\linewidth]{example-image-b}
-        \caption{System response.}
+        \caption{}
         \label{fig:pair-b}
     \end{subfigure}
-    \caption{Two subfigures placed side by side.}
+    \caption{Two subfigures placed side by side. (a) Step input. (b) System response.}
     \label{fig:pair}
 \end{figure}
 
@@ -73,14 +78,14 @@ after every second subfigure, as in \cref{fig:grid}. The four panels,
     \begin{subfigure}[b]{0.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{example-image-a}
-        \caption{\qty{25}{\celsius}}
+        \caption{}
         \label{fig:grid-a}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{example-image-b}
-        \caption{\qty{50}{\celsius}}
+        \caption{}
         \label{fig:grid-b}
     \end{subfigure}
 
@@ -89,17 +94,17 @@ after every second subfigure, as in \cref{fig:grid}. The four panels,
     \begin{subfigure}[b]{0.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{example-image-c}
-        \caption{\qty{75}{\celsius}}
+        \caption{}
         \label{fig:grid-c}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{example-image}
-        \caption{\qty{100}{\celsius}}
+        \caption{}
         \label{fig:grid-d}
     \end{subfigure}
-    \caption{$2 \times 2$ grid of subfigures.}
+    \caption{$2 \times 2$ grid of subfigures. (a) \qty{25}{\celsius}. (b) \qty{50}{\celsius}. (c) \qty{75}{\celsius}. (d) \qty{100}{\celsius}.}
     \label{fig:grid}
 \end{figure}
 
