@@ -26,6 +26,11 @@
 \renewcommand{\thetable}{\Roman{table}}
 \captionsetup[table]{position=top, name=TABLE, labelsep=newline, textfont=sc, justification=centering}
 
+% IEEE international date format: "7 October 2026" (used by \today on the title page)
+\renewcommand{\today}{\number\day\space\ifcase\month\or January\or February\or
+    March\or April\or May\or June\or July\or August\or September\or October\or
+    November\or December\fi\space\number\year}
+
 % IEEE uses "References" as the heading for the reference list
 \renewcommand{\bibname}{References}
 
