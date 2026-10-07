@@ -14,9 +14,14 @@ The compiled PDF explains each example, and the matching source is in the `Secti
 
 * Single-column A4 report layout with 19 mm side, 25 mm top and 30 mm bottom margins (set in `Format Parameters.tex`)
 * Title, author, abstract, header and footer ("Page X of Y") set from a few values in the main file
-* IEEE-style bibliography using `IEEEtran.bst`
-* Cross-referencing with `cleveref` (`\cref` / `\Cref`) throughout, in IEEE style: "Section II-A", "Fig. 1", "Fig. 2(a)", "(1)" (or "Equation (1)" at the start of a sentence) and "Table I"
-* IEEE caption style ("Fig. 1." below figures, "TABLE I" above tables) and reference list placed after the appendices
+* Formatting follows the IEEE Editorial Style Manual, keeping Australian English spelling:
+  * IEEE section headings: "I. INTRODUCTION", "A. Subsection" and "1) Subsubsection:"
+  * IEEE-style reference list using `IEEEtran.bst`, with citations as "[1]–[3]" and the reference list placed after the appendices
+  * Cross-referencing with `cleveref` (`\cref` / `\Cref`) throughout: "Section II-A", "Fig. 1", "Fig. 2(a)", "(1)" (or "Equation (1)" at the start of a sentence) and "Table I"
+  * IEEE captions: "Fig. 1." below figures with subfigure parts described in the main caption, and "TABLE I" above tables
+  * IEEE unit style with `siunitx`: "10 V", "9.81 m/s²", "N·m", "10–50 Hz" and "20%"
+  * International date format on the title page ("7 October 2026")
+  * IEEE appendix and References headings ("APPENDIX A", "REFERENCES")
 * All figures and tables fixed in place with `[H]`
 * Example figures and subfigures (`subcaption`)
 * Example `booktabs` tables, including `siunitx` decimal-aligned and grouped columns
@@ -163,17 +168,17 @@ Also replace `Email Address` in the `\author` line and write your abstract in th
 LATEX_Template/
 │── IEEE Report Template.tex   # Main file: your details, abstract and the list of sections
 │── Base Packages.tex          # All packages loaded by the template
-│── Format Parameters.tex      # Page margins, header/footer and numbering settings
+│── Format Parameters.tex      # Margins, IEEE headings and captions, numbering, date format, header/footer
 │── Code Input Perameters.tex  # Code listing styles (MATLAB, G-code, CODESYS)
-│── references.bib             # Bibliography entries
+│── references.bib             # Reference list entries
 │── Sections/
 │   │── Acronyms.tex              # Acronym definitions (listed at the start of the report)
 │   │── Example Section.tex       # Figures, subfigures, booktabs tables, \cref usage
 │   │── Engineering Examples.tex  # siunitx, amsmath, pgfplots, circuitikz, tikz, listings, citations
 │   │── Electrical Examples.tex   # Acronyms, circuits, timing diagrams, K-maps, Bode plots, phasors, 3D plots, registers, datasheets
-│   └── Appendices.tex            # Appendix chapters, including an inserted datasheet
+│   └── Appendices.tex            # Appendix A (Code Listings) and Appendix B (an inserted datasheet)
 │── Figures/
-│   └── test-setup.jpg         # Example photo (Figure 1 in the Example Section)
+│   └── test-setup.jpg         # Example photo (Fig. 1 in the Example Section)
 │── Data/
 │   └── step_response.csv      # Example data plotted with pgfplots
 │── Code/
@@ -189,7 +194,7 @@ LATEX_Template/
 - **Acronyms:** add them to `Sections/Acronyms.tex` and write `\ac{KEY}` in the text. Only acronyms you use appear in the list.
 - **Circuit symbols:** for IEC/European symbols throughout (as used in Australian Standards), change `\usepackage{circuitikz}` to `\usepackage[european]{circuitikz}` in `Base Packages.tex`.
 - **References:** add entries to `references.bib` and cite them with `\cite{key}`. The main file uses `\nocite{*}`, which lists *every* entry in the bibliography even if it is not cited. Remove it if you only want cited sources.
-- **Cross-references:** label everything (`fig:`, `tab:`, `eq:`, `lst:`, `app:`) and reference it with `\cref{...}`, or `\Cref{...}` at the start of a sentence. The IEEE reference and caption styles are set in `Base Packages.tex` and `Format Parameters.tex`.
+- **Cross-references:** label everything (`sec:`, `fig:`, `tab:`, `eq:`, `lst:`, `app:`) and reference it with `\cref{...}`, or `\Cref{...}` at the start of a sentence. The IEEE reference and caption styles are set in `Base Packages.tex` and `Format Parameters.tex`.
 - **Page layout and code style:** edit `Format Parameters.tex` and `Code Input Perameters.tex`.
 - **Section headings:** these follow IEEE style: "I. INTRODUCTION" (Roman numeral, centred, small capitals), "A. Subsection" (italic) and "1) Subsubsection:" (italic, run into the paragraph). Reference them with `\cref{sec:...}`, which gives "Section II-A". The heading styles are set in `Format Parameters.tex`.
 - **Extra packages:** add them to `Base Packages.tex`. Most packages can go anywhere in the file, but `cleveref` must stay after `hyperref`, so check a package's documentation if it says it needs to be loaded before or after either of them.

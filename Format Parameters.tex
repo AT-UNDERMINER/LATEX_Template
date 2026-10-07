@@ -34,7 +34,9 @@
 
 % IEEE caption style
 %   Figures:    "Fig. 1. Caption text." below the figure
-%   Subfigures: "(a) Caption text." and referenced as "Fig. 2(a)"
+%   Subfigures: "(a)" under each part (empty \caption{}), with the part descriptions in
+%               the main caption: "Fig. 2. Title. (a) First part. (b) Second part."
+%               Referenced as "Fig. 2(a)"
 %   Tables:     "TABLE I" with the title in small capitals on the next line, above the table
 \captionsetup[figure]{name=Fig., labelsep=period}
 \renewcommand{\thesubfigure}{(\alph{subfigure})}
