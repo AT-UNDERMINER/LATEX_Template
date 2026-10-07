@@ -34,6 +34,7 @@
 %   Equations:  "(1)" mid-sentence (\cref), "Equation (1)" at the start of a sentence (\Cref)
 %   Tables:     "Table I" (Roman numerals are set in Format Parameters.tex)
 \newcommand{\crefrangeconjunction}{--} % En dash for ranges: "Figs. 3--5", "(1)--(3)"
+\newcommand{\creflastconjunction}{, and~} % Serial comma in lists: "Figs. 1, 3, and 5"
 \crefname{figure}{Fig.}{Figs.}
 \Crefname{figure}{Fig.}{Figs.}
 \crefformat{subfigure}{Fig.~#2#1#3}
@@ -56,7 +57,21 @@
 \usepackage{listings}   % Code inclusion (formats and highlights source code snippets)  
 
 % SI Units and Measurements  
-\usepackage{siunitx}    % Proper typesetting of units and numbers (handles SI units consistently)  
+\usepackage{siunitx}    % Proper typesetting of units and numbers (handles SI units consistently)
+% IEEE unit style
+\sisetup{
+    quantity-product     = \nobreakspace,                 % Regular space between number and unit: 10 V
+    inter-unit-product   = \ensuremath{{}\cdot{}},        % Centre dot between units: N·m
+    per-mode             = symbol,                        % Slash for "per": m/s, rad/s
+    range-units          = single,                        % Unit once in ranges: 10--50 Hz
+    range-phrase         = --,                            % En dash in ranges
+    list-units           = single,                        % Unit once in lists: 1, 2, and 5 mm
+    list-pair-separator  = {~and~},
+    list-final-separator = {, and~},                      % Serial comma before "and"
+    product-units        = single,                        % 2 x 5 cm
+}
+% Percent has no space and is repeated in ranges and lists: 20%--30%
+\DeclareSIUnit[quantity-product = {}, range-units = repeat, list-units = repeat]{\percent}{\%}
 
 % Drawing and Diagrams  
 \usepackage{tikz}       % General drawing tool (allows creating diagrams, graphs, and free-body diagrams)

@@ -125,7 +125,7 @@ with a full stop.
     \label{tab:basic}
     \begin{tabular}{lccc}
         \toprule
-        Material  & Density (\si{\kilo\gram\per\cubic\metre}) & $E$ (\si{\giga\pascal}) & $\nu$ \\
+        Material  & Density (\unit{\kilo\gram\per\cubic\metre}) & $E$ (\unit{\giga\pascal}) & $\nu$ \\
         \midrule
         Steel     & 7850 & 200 & 0.30 \\
         Aluminium & 2700 & 69  & 0.33 \\
@@ -151,7 +151,7 @@ and 2 after the decimal point. Wrap text headers in braces \verb|{...}|.
         S[table-format=3.1]
     }
         \toprule
-        {Test} & {Voltage (\si{\volt})} & {Current (\si{\ampere})} & {Power (\si{\watt})} \\
+        {Test} & {Voltage (\unit{\volt})} & {Current (\unit{\ampere})} & {Power (\unit{\watt})} \\
         \midrule
         T1 & 5.00  & 0.125 & 0.6   \\
         T2 & 12.00 & 1.040 & 12.5  \\
@@ -175,7 +175,7 @@ groups without drawing a line.
         \toprule
         & \multicolumn{2}{c}{Simulation} & \multicolumn{2}{c}{Experiment} \\
         \cmidrule(lr){2-3} \cmidrule(lr){4-5}
-        {Case} & {Rise (\si{\milli\second})} & {Overshoot (\%)} & {Rise (\si{\milli\second})} & {Overshoot (\%)} \\
+        {Case} & {Rise (\unit{\milli\second})} & {Overshoot (\%)} & {Rise (\unit{\milli\second})} & {Overshoot (\%)} \\
         \midrule
         P controller   & 12.4 & 18.2 & 13.1 & 20.5 \\
         PI controller  & 10.8 & 9.6  & 11.5 & 11.2 \\

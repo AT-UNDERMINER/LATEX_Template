@@ -13,6 +13,10 @@
 
 Always write quantities with \texttt{siunitx} instead of typing units by
 hand. It handles spacing, upright units and number formatting for you.
+The template sets it up for IEEE style in \texttt{Base Packages.tex}: a
+regular space before the unit, a slash for ``per'', a centre dot between
+units, the unit written once in ranges and lists, and no space before
+\%.
 
 \begin{table}[H]
     \centering
@@ -28,6 +32,9 @@ hand. It handles spacing, upright units and number formatting for you.
         \verb|\num{123456.789}|                      & \num{123456.789} \\
         \verb|\qtyrange{10}{50}{\hertz}|             & \qtyrange{10}{50}{\hertz} \\
         \verb|\qtylist{1;2;5}{\milli\metre}|         & \qtylist{1;2;5}{\milli\metre} \\
+        \verb|\qtyproduct{2 x 5}{\centi\metre}|      & \qtyproduct{2 x 5}{\centi\metre} \\
+        \verb|\qty{20}{\percent}|                   & \qty{20}{\percent} \\
+        \verb|\qtyrange{20}{30}{\percent}|          & \qtyrange{20}{30}{\percent} \\
         \verb|\unit{\newton\metre}|                  & \unit{\newton\metre} \\
         \verb|\ang{45}|                              & \ang{45} \\
         \verb|\qty{20}{\celsius}|                    & \qty{20}{\celsius} \\
